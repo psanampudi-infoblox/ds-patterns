@@ -21,3 +21,21 @@ We will log the tidbits under patterns directory.
 	- Provide a checklist for launching a new CRD to `beta`/`GA`
 	- Discuss observability patterns (metrics naming, event patterns, condition taxonomy)
 	- Add references to reliability pattern doc once cross-linking approved.
+
+## 2025-09-15
+
+- Authored full modelling tutorial in `patterns/modelling.md` (previously only a placeholder). Covered: model taxonomy, starting approaches comparison, DDD slice (glossary, aggregates, invariants), mapping to persistence, integration boundaries + ACL, projections, versioning/evolution, heuristics, workflow checklist, example mini domain (Order), tool/artefact selection guide, extensive FAQ (20 Q&A), cheat sheet, adjacent topics pointers.
+- Added TODO comment for potential future code sample (Order aggregate implementation) to illustrate theory with a concrete example.
+- Intent: Provide pragmatic, non-dogmatic guidance; emphasize separation of model concerns and evolutionary practices.
+- Next enhancement ideas:
+	- Add a diagram (bounded contexts & flow) — requires decision on diagram tooling (Mermaid vs external).
+	- Provide concrete code sample: Value Object (Money), Aggregate (Order), Repository interface, projection builder.
+	- Add pitfalls section examples with before/after refactor snippets.
+	- Cross-link to `database-migration` patterns for schema evolution details.
+	- Possibly integrate a “model review checklist” template as a separate markdown artifact.
+
+	## 2025-09-16
+
+	- Replaced stub in `patterns/aen.md` with comprehensive practical guide on canonical resource identifiers (ARN-like schemes). Focus areas: purpose, design goals, structured vs opaque trade-offs, comparative survey (AWS/GCP/Azure/Stripe/K8s/GitHub), DNS usage rationale & constraints, encoding scheme practical guidance (no math), issuance & lifecycle, policy integration, observability patterns, external ID handling, anti-patterns, pragmatic checklist, glossary, and future TODO placeholders (regex examples, internal bloxid example, code snippets, cross-links pending approval). Intentionally omitted entropy/math per request.
+
+
