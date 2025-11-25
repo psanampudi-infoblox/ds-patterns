@@ -38,4 +38,15 @@ We will log the tidbits under patterns directory.
 
 	- Replaced stub in `patterns/aen.md` with comprehensive practical guide on canonical resource identifiers (ARN-like schemes). Focus areas: purpose, design goals, structured vs opaque trade-offs, comparative survey (AWS/GCP/Azure/Stripe/K8s/GitHub), DNS usage rationale & constraints, encoding scheme practical guidance (no math), issuance & lifecycle, policy integration, observability patterns, external ID handling, anti-patterns, pragmatic checklist, glossary, and future TODO placeholders (regex examples, internal bloxid example, code snippets, cross-links pending approval). Intentionally omitted entropy/math per request.
 
+## 2025-09-19
+
+- Authored full `patterns/local-survivability.md` splitting content into two major parts: (1) Neutral conceptual section (definition, objectives, architecture blocks, modes, DNS/DHCP/IPAM behavior, policy/security offline, observability buffering, integrity model, recovery flow, edge cases, testing scenarios, anti-patterns, glossary) and (2) Infoblox-specific mapping (replication, triggers, DNS/DHCP specifics, policy snapshot handling, call-home, telemetry buffering, reconciliation, identity & trust, serve-stale, operational visibility, testing guidance, future considerations, mapping table). Added explicit TODO placeholders for internal references (replication filtering, offline lease policy toggle, log sampling config names) to be filled with proprietary details later without exposing them prematurely.
+- Next possible enhancements:
+	- Fill TODO placeholders with internal doc links / config keys (pending approval).
+	- Add a readiness checklist (pre-positioned data coverage %, snapshot freshness SLOs, max offline lease issuance policy, telemetry buffer capacity targets).
+	- Provide a Mermaid sequence diagram for Recovery & Reconciliation flow.
+	- Cross-link to reliability, fail-fast, and modelling docs where relevant once cross-linking strategy settled.
+	- Add a decision record template for enabling/disabling offline new lease issuance.
+- Added deployment diagrams (Mermaid) to `patterns/local-survivability.md` covering: Traditional NIOS, NIOS-X (on-prem), NIOS-X-aaS, BloxOne DDI, Universal DDI (interpreted as Universal DDI unified portal), plus a generic survivability sequence flow. Included a topology comparison table. Assumptions: Universal DDI = unified SaaS portal + connectors synchronizing inventory/policy across heterogeneous on-prem assets. No proprietary internal service codenames used. Potential follow-up: add color theming / legend standardization across other pattern docs for consistency.
+
 
